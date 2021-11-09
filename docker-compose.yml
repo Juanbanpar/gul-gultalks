@@ -1,0 +1,37 @@
+version: '3.9'
+services:
+    web:
+        build: .
+        container_name: cursos-web
+        hostname: cursos-web
+        ports:
+            - "8080:3000"
+        networks:
+            cursos:
+                ipv4_address: 172.16.238.2
+
+    db:
+        image: mysql
+        container_name: cursos-db
+        hostname: cursos-db
+        ports:
+            - "3306:3306"
+        environment:
+            - MYSQL_ROOT_PASSWORD=changemeroot
+            - MYSQL_USER=user
+            - MYSQL_PASSWORD=changeme
+            - MYSQL_DATABASE=gultalks
+        volumes:
+            - .:/docker-entrypoint-initdb.d
+        networks:
+            cursos:
+                 ipv4_address: 172.16.238.3
+            
+networks:
+    cursos:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 172.16.238.0/24
+                  gateway: 172.16.238.1
