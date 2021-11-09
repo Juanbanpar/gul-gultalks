@@ -37,8 +37,8 @@ development:
   adapter: mysql2
   encoding: utf8
   database: gultalks
-  pool: 5
-  host: localhost
+  #pool: 5
+  host: 172.16.238.3
   #port: 3306
   username: user
   password: changeme
