@@ -38,7 +38,7 @@ development:
   encoding: utf8
   database: gultalks
   pool: 5
-  host: db
+  host: localhost
   #port: 3306
   username: user
   password: changeme
