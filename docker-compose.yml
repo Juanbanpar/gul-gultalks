@@ -3,23 +3,20 @@ services:
     web:
         build: .
         container_name: cursos-web
-        hostname: cursos-web
+        hostname: web
         ports:
             - "8080:3000"
         networks:
             cursos:
                 ipv4_address: 172.16.238.2
-        links:
-            - db
-
+    
     db:
-        image: mysql
+        image: mysql:5.6
         container_name: cursos-db
-        hostname: cursos-db
-        ports:
-            - "3306:3306"
+        hostname: db
+        restart: always
         environment:
-            - MYSQL_ROOT_PASSWORD=changemeroot
+            - MYSQL_ROOT_PASSWORD=changeme
             - MYSQL_USER=user
             - MYSQL_PASSWORD=changeme
             - MYSQL_DATABASE=gultalks
