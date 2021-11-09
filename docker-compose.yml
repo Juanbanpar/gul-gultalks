@@ -1,21 +1,7 @@
 version: '3.9'
 services:
-    web:
-        build: .
-        container_name: cursos-web
-        hostname: web
-        links:
-            - db:db
-        depends_on:
-            - db
-        ports:
-            - "8080:3000"
-        networks:
-            cursos:
-                ipv4_address: 172.16.238.2
-    
     db:
-        image: mysql:5.6
+        image: mysql:5.7
         container_name: cursos-db
         hostname: db
         restart: always
@@ -30,6 +16,25 @@ services:
         networks:
             cursos:
                  ipv4_address: 172.16.238.3
+    
+    web:
+        build: .
+        container_name: cursos-web
+        hostname: web
+        links:
+            - db:db
+        depends_on:
+            - db
+        ports:
+            - "8080:3000"
+        networks:
+            cursos:
+                ipv4_address: 172.16.238.2
+        environment:
+            DB_USER: user
+            DB_NAME: gultalks
+            DB_PASSWORD: changeme
+            DB_HOST: db
             
 networks:
     cursos:
