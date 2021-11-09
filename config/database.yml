@@ -38,6 +38,6 @@ development:
   encoding: utf8
   database: gultalks
   pool: 5
-  host: 172.16.238.3:3306
+  host: mysql://172.16.238.3:3306
   username: user
   password: changeme
