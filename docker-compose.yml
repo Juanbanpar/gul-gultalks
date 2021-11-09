@@ -9,6 +9,8 @@ services:
         networks:
             cursos:
                 ipv4_address: 172.16.238.2
+        links:
+            - db
 
     db:
         image: mysql
