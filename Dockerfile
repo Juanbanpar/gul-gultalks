@@ -10,8 +10,6 @@ RUN apt update
 RUN apt install -y default-mysql-client
 #RUN git clone https://github.com/Juanbanpar/gul-gultalks
 #WORKDIR gul-gultalks
-# ADD . .
-# WORKDIR .
 
 RUN mkdir /app
 WORKDIR /app 
@@ -19,7 +17,6 @@ ADD Gemfile /app/Gemfile
 ADD Gemfile.lock /app/Gemfile.lock
 
 #RUN gem install mina
-#RUN gem install therubyracer
 #RUN bundle update --all
 RUN bundle install #--without development
 
