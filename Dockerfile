@@ -1,4 +1,4 @@
-FROM ruby:2.3
+FROM ruby
 
 #RUN wget https://github.com/guluc3m/gul-gultalks/archive/refs/tags/3.0.0.tar.gz
 #RUN tar -xf 3.0.0.tar.gz
@@ -7,6 +7,7 @@ FROM ruby:2.3
 RUN git clone https://github.com/Juanbanpar/gul-gultalks
 WORKDIR gul-gultalks
 #RUN gem install mina
+RUN bundle update --all
 RUN bundle install --without development
 RUN rake db:migrate
 
