@@ -33,24 +33,24 @@ test:
   #password:
   #socket: /var/run/mysqld/mysqld.sock
   
-production:
-  adapter: mysql2
-  encoding: utf8
-  database: gultalks
-  pool: 5
-  host: db
-  port: 3306
-  username: root
-  password: changeme
-  socket: /var/run/mysqld/mysqld.sock
-
-#production: &default
+#production:
   #adapter: mysql2
   #encoding: utf8
+  #database: gultalks
   #pool: 5
-  #database: <%= ENV['DB_NAME'] %>
-  #username: <%= ENV['DB_USER'] %>
-  #password: <%= ENV['DB_PASSWORD'] %>
-  #host: <%= ENV['DB_HOST'] %>
-  ##host: 172.16.238.3
+  #host: db
   #port: 3306
+  #username: user
+  #password: changeme
+  #socket: /var/run/mysqld/mysqld.sock
+
+production: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  database: <%= ENV['DB_NAME'] %>
+  username: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  host: <%= ENV['DB_HOST'] %>
+  #host: 172.16.238.3
+  port: 3306

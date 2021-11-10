@@ -8,8 +8,8 @@ services:
         ports:
             - "3306:3306"
         environment:
-            MYSQL_ROOT_PASSWORD: changeme
-            #MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+            #MYSQL_ROOT_PASSWORD: changeme
+            MYSQL_RANDOM_ROOT_PASSWORD: "yes"
             MYSQL_USER: user
             MYSQL_PASSWORD: changeme
             MYSQL_DATABASE: gultalks
@@ -28,7 +28,7 @@ services:
         depends_on:
             - db
         ports:
-            - "8080:3000"
+            - "3000:3000"
         networks:
             cursos:
                 ipv4_address: 172.16.238.2
