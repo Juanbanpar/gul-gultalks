@@ -5,6 +5,9 @@ FROM ruby:2.3
 #RUN rm 3.0.0.tar.gz
 #WORKDIR gul-gultalks-3.0.0
 #RUN apt update && apt install -y nodejs
+
+RUN apt update
+RUN apt install -y default-mysql-client
 RUN git clone https://github.com/Juanbanpar/gul-gultalks
 WORKDIR gul-gultalks
 #RUN gem install mina
