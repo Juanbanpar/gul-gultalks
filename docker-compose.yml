@@ -5,6 +5,8 @@ services:
         container_name: cursos-db
         hostname: db
         restart: always
+        ports:
+            - "3306:3306"
         environment:
             #MYSQL_ROOT_PASSWORD=changeme
             MYSQL_RANDOM_ROOT_PASSWORD: "yes"

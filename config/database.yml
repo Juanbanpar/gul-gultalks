@@ -37,9 +37,9 @@ test:
   #adapter: mysql2
   #encoding: utf8
   #database: gultalks
-  ##pool: 5
+  #pool: 5
   #host: 172.16.238.3
-  ##port: 3306
+  #port: 3306
   #username: user
   #password: changeme
 
@@ -50,4 +50,6 @@ production: &default
   database: <%= ENV['DB_NAME'] %>
   username: <%= ENV['DB_USER'] %>
   password: <%= ENV['DB_PASSWORD'] %>
-  host: <%= ENV['DB_HOST'] %>
+  #host: <%= ENV['DB_HOST'] %>
+  host: 172.16.238.3
+  port: 3306
